@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:background="@color/_mm_top_layout_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/_mm_horizontal_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:tag="horizontall">
+
+        <ImageButton
+            android:id="@+id/_mm_camera_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@android:color/transparent"
+            android:minWidth="35dp"
+            android:minHeight="35dp"
+            android:padding="6dp"
+            android:src="@drawable/mm_camera_icon" />
+
+        <com.makemoji.mojilib.MojiEditText
+            android:id="@+id/_mm_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/mm_et_bg"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:inputType="textMultiLine"
+            android:maxLines="@integer/_mm_moji_input_max_lines"
+            android:minHeight="40dp"
+            android:padding="4dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:scrollHorizontally="false"
+            android:textSize="@dimen/mm_edit_text_size" />
+    </LinearLayout>
+
+    <com.makemoji.mojilib.ResizeableLL
+        android:id="@+id/_mm_horizontal_top_scroller"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <include
+            layout="@layout/mm_top_left_page"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/_mm_recylcer_view"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@color/_mm_horiz_rv_bg"
+            android:paddingLeft="0dp"
+            tools:listitem="@layout/mm_horiz_moji_item" />
+    </com.makemoji.mojilib.ResizeableLL>
+
+    <FrameLayout
+        android:id="@+id/_mm_page_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mm_page_height"
+        android:animateLayoutChanges="false"
+        android:visibility="gone">
+
+        <ViewStub
+            android:id="@+id/_mm_stub_cat_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/mm_page_categories" />
+
+    </FrameLayout>
+</LinearLayout>
