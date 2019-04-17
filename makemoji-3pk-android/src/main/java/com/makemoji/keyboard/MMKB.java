@@ -421,6 +421,9 @@ public class MMKB extends InputMethodService
         // Reset our state.  We want to do this even if restarting, because
         // the underlying state of the text editor could have changed in any way.
         mComposing.setLength(0);
+        mCurComposing.setLength(0);
+        if (horizRVAdapter != null) findEmoji();
+
         updateCandidates();
 
         if (!restarting) {
